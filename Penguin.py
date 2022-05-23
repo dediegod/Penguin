@@ -1,6 +1,6 @@
 import pandas as pd
 import streamlit as st
-import plotly.express as px  # interactive charts
+#import plotly.express as px  # interactive charts
  
 url = 'C:/Users/dedie/Desktop/Diseño y programación de herramientas analíticas/ACTIVIDADES/penguins lter.csv'
 df = pd.read_csv(url, sep=",")
@@ -18,8 +18,8 @@ textColor="#000b4c"
 df["Sex"] = df["Sex"].fillna("Sexo sin identificar")
 df["Comments"] = df["Comments"].fillna("")
 df["Sex"] = df["Sex"].replace(to_replace = ["."], value ="Sexo sin identificar")
-df["Sex"] = df["Sex"].replace(to_replace = ["MALE"], value ="Masculino")
-df["Sex"] = df["Sex"].replace(to_replace = ["FEMALE"], value ="Femenino")
+df["Sex"] = df["Sex"].replace(to_replace = ["MALE"], value ="Male")
+df["Sex"] = df["Sex"].replace(to_replace = ["FEMALE"], value ="Female")
 df["Sex"] = df["Sex"].dropna()
 df = df.dropna()
 df = df.drop(['Sample Number', 'Region'], axis=1)
@@ -90,13 +90,13 @@ if mostrar_graficos:
     fig_col1, fig_col2 = st.columns(2)
     with fig_col1:
         st.markdown("### Body Mass (g)")
-        fig = px.histogram(df, x='Island', y='Flipper Length (mm)', hover_data=['Culmen Length (mm)', 'Culmen Depth (mm)'], color='Sex', barmode='group', height=450)
-        st.write(fig)
+       # fig = px.histogram(df, x='Island', y='Flipper Length (mm)', hover_data=['Culmen Length (mm)', 'Culmen Depth (mm)'], color='Sex', barmode='group', height=450)
+      #  st.write(fig)
            
     with fig_col2:
         st.markdown("### Flipper Length (mm)")
-        fig2 = px.histogram(df, x="Flipper Length (mm)", color='Sex', barmode='group', height=450)
-        st.write(fig2)
+       # fig2 = px.histogram(df, x="Flipper Length (mm)", color='Sex', barmode='group', height=450)
+      #  st.write(fig2)
     
 #with fig_col3:
 #st.markdown("### Clutch Completion")
